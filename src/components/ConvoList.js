@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Convo from "./Convo"
 import PropTypes from 'prop-types';
 
-export class ConversationList extends Component {
+
+class ConvoList extends Component {
+    
     render() {
-        return (
-            <div>
-                
-            </div>
-        )
+        return this.props.convos.map((convo => (
+            <Convo key={convo.id} convo={convo} />
+        )))
     }
 }
 
@@ -17,4 +17,4 @@ ConvoList.propTypes = {
     convos: PropTypes.array.isRequired
 }
 
-export default ConversationList
+export default ConvoList;
