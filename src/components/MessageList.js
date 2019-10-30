@@ -2,9 +2,11 @@ import React, {Component} from "react";
 import Message from './Message';
 import PropTypes from 'prop-types';
 
+
 class MessageList extends Component{
+
     render() {
-        return this.props.todos.map((message => (
+        return this.props.messages.map((message => (
             <Message key={message.id} message={message} />
         )))
     }
@@ -12,7 +14,7 @@ class MessageList extends Component{
 
 // PropTypes
 MessageList.propTypes = {
-    MessageList: PropTypes.array.isRequired
+    messages: PropTypes.array.isRequired
 }
 
 export default MessageList;

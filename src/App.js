@@ -1,33 +1,32 @@
 import React, {Component} from "react";
-import './Messages';
+import MessageList from './components/MessageList';
 import Top from './Top';
 import InputSection from './InputSection';
+
 import './App.css';
 
 
 class App extends Component{
-  constructor(){
-    super();
-    this.state = [
+  state = {
+    messages:[
       {
-        avatar: 'alan',
+        sender: 'alan',
         message: 'oh my lord',
       },
       {
-        avatar: 'me',
+        sender: 'me',
         message: 'honhonhon'
       }
     ]
   }
 
   render() {
-    return(
-      <div className="container">
-        <Top />
-        <messages messages={this.state.messages}/>
-        <InputSection />
+    return (
+      <div className="App">
+        <h1>oop</h1>
+        <MessageList messages={this.state.messages} />
       </div>
-    )
+		);
   }
 }
 
