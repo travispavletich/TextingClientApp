@@ -14,24 +14,28 @@ class App extends Component{
         id: 1,
         sender: 'alan',
         message: 'oh my lord',
+        number: '6098889999',
         self: false
       },
       {
         id: 2,
         sender: 'me',
         message: 'honhonhon',
+        number: '1112223333',
         self: true
       },
       {
         id: 3,
         sender: 'me',
         message: 'skrtskrt',
+        number: '1112223333',
         self: true
       },
       {
         id: 2,
         sender: 'alan',
         message: 'N O !',
+        number: '6098889999',
         self: false
       },
     ],
@@ -81,6 +85,7 @@ class App extends Component{
             <h1>This WOULD be alan's name</h1>
             <div style={style_MessageList}>
               <MessageList messages={this.state.messages} />
+              <InputSection />
             </div>
           </div>
         </div>

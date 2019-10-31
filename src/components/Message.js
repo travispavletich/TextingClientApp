@@ -12,11 +12,12 @@ export class Message extends Component{
 
 
   render() {
-    const { id, sender, message } = this.props.message;
+    const { id, sender, message, number } = this.props.message;
 
     return (
       <div style={this.getStyle()}>
-        <p>{ sender }: {message}</p>
+        <b>{ number } // { sender }</b>
+        <p>{ message }</p>
       </div>
     )
   }
