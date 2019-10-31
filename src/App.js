@@ -64,6 +64,12 @@ class App extends Component{
   }
 
   render() {
+    const style_MessageList = {
+      background: '#ff0000',
+      maxHeight: '100px',
+      overflowY: 'scroll'
+    };
+
     return (
       <div className="App">
         <div className="wrapper">
@@ -73,7 +79,9 @@ class App extends Component{
           </div>
           <div>
             <h1>This WOULD be alan's name</h1>
-            <MessageList messages={this.state.messages} />
+            <div style={style_MessageList}>
+              <MessageList messages={this.state.messages} />
+            </div>
           </div>
         </div>
       </div>
