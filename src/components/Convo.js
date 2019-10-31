@@ -6,6 +6,7 @@ export class Convo extends Component {
         return {
             background: this.props.convo.active ? '#00ff00' : 'none',
             borderBottom: '1px #ccc dotted',
+            padding: '10px',
         }
     }
 

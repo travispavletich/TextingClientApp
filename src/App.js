@@ -66,10 +66,16 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <h1>Convo List</h1>
-        <ConvoList convos={this.state.convos} />
-        <h1>This WOULD be alan's name</h1>
-        <MessageList messages={this.state.messages} />
+        <div className="wrapper">
+          <div>
+            <h1>Convo List</h1>
+            <ConvoList convos={this.state.convos} />
+          </div>
+          <div>
+            <h1>This WOULD be alan's name</h1>
+            <MessageList messages={this.state.messages} />
+          </div>
+        </div>
       </div>
 		);
   }
