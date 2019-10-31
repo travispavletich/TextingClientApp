@@ -65,8 +65,8 @@ class App extends Component{
 
   render() {
     const style_MessageList = {
-      background: '#ff0000',
       maxHeight: '100px',
+      maxWidth: '95%',
       overflowY: 'scroll'
     };
 
