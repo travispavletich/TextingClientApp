@@ -43,6 +43,26 @@ ipcRenderer.on(TOKEN_UPDATED, (_, token) => {
 // Display notification
 ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   // check to see if payload contains a body string, if it doesn't consider it a silent push
+  if(serverNotificationPayload.data.NotificationType === "MessageList"){
+    var messages = JSON.parse(serverNotificationPayload.data.Messages);
+    console.log(messages);
+    var i;
+    for (i = 0; i < messages.length; i++) {
+      var container = document.createElement('div');
+      var header = document.createElement('h3');
+      var node = document.createTextNode(messages[i].Sender);
+      header.appendChild(node);
+      container.appendChild(header);
+      var body = document.createElement('p');
+      var node2 = document.createTextNode(messages[i].MessageBody);
+      body.appendChild(node2);
+      container.appendChild(body);
+
+      var messageArea = document.getElementById("messageArea");
+      messageArea.appendChild(container);
+    }
+    
+  }
   console.log("Notification received");
   console.log(serverNotificationPayload);
 });

@@ -25,6 +25,7 @@ class App extends Component{
       <div className="container">
         <Top />
         <messages messages={this.state.messages}/>
+        <div id = "messageArea"  style={{display:'block'}}></div>
         <InputSection />
       </div>
     )
