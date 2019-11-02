@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export class Convo extends Component {
+    //change style of convo depending on activity
     getStyle = () => {
         return {
             background: this.props.convo.active ? '#00ff00' : 'none',
