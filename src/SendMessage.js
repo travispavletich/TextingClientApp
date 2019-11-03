@@ -32,7 +32,7 @@ export class SendMessage extends Component {
                 {/* submit message button */}
                 <input 
                     type="submit" 
-                    value="Submit" 
+                    value="Send" 
                     className="btn"
                     style={{flex: 1}}
                 />

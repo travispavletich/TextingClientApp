@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import MessageList from './components/MessageList';
 import ConvoList from './components/ConvoList';
 import SendMessage from './SendMessage';
+import uuid from 'uuid';
 
 import './App.css';
 
@@ -10,28 +11,28 @@ class App extends Component{
   state = {
     messages:[
       {
-        id: 1,
+        id: uuid.v4(),
         sender: 'alan',
         text: 'oh my lord',
         number: '6098889999',
         self: false
       },
       {
-        id: 2,
+        id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
         self: true
       },
       {
-        id: 3,
+        id: uuid.v4(),
         sender: 'me',
         text: 'skrtskrt',
         number: '1112223333',
         self: true
       },
       {
-        id: 4,
+        id: uuid.v4(),
         sender: 'alan',
         text: 'N O !',
         number: '6098889999',
@@ -40,25 +41,25 @@ class App extends Component{
     ],
     convos: [
       {
-        id: 11,
+        id: uuid.v4(),
         sender: 'alan',
         preview: 'N O !',
         active: true
       },
       {
-        id: 12,
+        id: uuid.v4(),
         sender: 'al capone',
         preview: 'give me your pizza',
         active: false
       },
       {
-        id: 13,
+        id: uuid.v4(),
         sender: 'al calzone',
         preview: 'are you italian my man',
         active: false
       },
       {
-        id: 14,
+        id: uuid.v4(),
         sender: 'al lasagna',
         preview: 'I think you still owe me from Costco',
         active: false
@@ -69,7 +70,7 @@ class App extends Component{
   // Send a new message
   sendMessage = (text) => {
     const newMessage = {
-      id: 8,
+      id: uuid.v4(),
       sender: 'me',
       text,
       number: '1112223333',
