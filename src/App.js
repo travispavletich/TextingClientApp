@@ -32,7 +32,7 @@ class App extends Component{
         self: true
       },
       {
-        id: 2,
+        id: 4,
         sender: 'alan',
         message: 'N O !',
         number: '6098889999',
