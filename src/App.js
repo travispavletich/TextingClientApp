@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import MessageList from './components/MessageList';
 import ConvoList from './components/ConvoList';
-import Top from './Top';
-import InputSection from './InputSection';
+import SendMessage from './SendMessage';
+import uuid from 'uuid';
 
 import './App.css';
 
@@ -11,61 +11,74 @@ class App extends Component{
   state = {
     messages:[
       {
-        id: 1,
+        id: uuid.v4(),
         sender: 'alan',
-        message: 'oh my lord',
+        text: 'oh my lord',
         number: '6098889999',
         self: false
       },
       {
-        id: 2,
+        id: uuid.v4(),
         sender: 'me',
-        message: 'honhonhon',
+        text: 'honhonhon',
         number: '1112223333',
         self: true
       },
       {
-        id: 3,
+        id: uuid.v4(),
         sender: 'me',
-        message: 'skrtskrt',
+        text: 'skrtskrt',
         number: '1112223333',
         self: true
       },
       {
-        id: 2,
+        id: uuid.v4(),
         sender: 'alan',
-        message: 'N O !',
+        text: 'N O !',
         number: '6098889999',
         self: false
       },
     ],
     convos: [
       {
-        id: 1,
+        id: uuid.v4(),
         sender: 'alan',
         preview: 'N O !',
         active: true
       },
       {
-        id: 2,
+        id: uuid.v4(),
         sender: 'al capone',
         preview: 'give me your pizza',
         active: false
       },
       {
-        id: 3,
+        id: uuid.v4(),
         sender: 'al calzone',
         preview: 'are you italian my man',
         active: false
       },
       {
-        id: 4,
+        id: uuid.v4(),
         sender: 'al lasagna',
         preview: 'I think you still owe me from Costco',
         active: false
       }
     ]
   }
+
+  // Send a new message
+  sendMessage = (text) => {
+    const newMessage = {
+      id: uuid.v4(),
+      sender: 'me',
+      text,
+      number: '1112223333',
+      self: true
+    }
+    this.setState( {messages: [...this.state.messages, newMessage]})
+  }
+
 
   render() {
     const style_MessageList = {
@@ -81,12 +94,13 @@ class App extends Component{
             <h1>Convo List</h1>
             <ConvoList convos={this.state.convos} />
           </div>
+          
           <div>
             <h1>This WOULD be alan's name</h1>
             <div style={style_MessageList}>
               <MessageList messages={this.state.messages} />
-              <InputSection />
             </div>
+            <SendMessage sendMessage={this.sendMessage} />
           </div>
         </div>
       </div>
