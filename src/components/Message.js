@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 
 export class Message extends Component{
+  //change style depending on sender (self vs contact)
   getStyle = () => {
     return {
       background: this.props.message.self ? '#f2f2f2' : '#fffff',
@@ -12,12 +13,12 @@ export class Message extends Component{
 
 
   render() {
-    const { id, sender, message, number } = this.props.message;
+    const { id, sender, text, number } = this.props.message;
 
     return (
       <div style={this.getStyle()}>
         <b>{ number } // { sender }</b>
-        <p>{ message }</p>
+        <p>{ text }</p>
       </div>
     )
   }
