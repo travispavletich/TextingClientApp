@@ -73,10 +73,10 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   else if(serverNotificationPayload.data.NotificationType === "RetrieveMessageList"){
     getMessageList();
   }
-  else if(serverNotificationPayload.data.NotificationType === "NewMessage"){
-    //var message = JSON.parse(serverNotificationPayload.data.message);
-    //console.log(serverNotificationPayload);
-    addNewMessage(serverNotificationPayload.data);
+  else if(serverNotificationPayload.data.NotificationType === "NewMessageRecieved"){
+    var message = JSON.parse(serverNotificationPayload.data.Message);
+    console.log(message);
+    addNewMessage(message);
   }
   else{
     console.log(serverNotificationPayload.data.NotificationType);
