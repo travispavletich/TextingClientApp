@@ -73,6 +73,11 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   else if(serverNotificationPayload.data.NotificationType === "RetrieveMessageList"){
     getMessageList();
   }
+  else if(serverNotificationPayload.data.NotificationType === "NewMessage"){
+    //var message = JSON.parse(serverNotificationPayload.data.message);
+    //console.log(serverNotificationPayload);
+    addNewMessage(serverNotificationPayload.data);
+  }
   else{
     console.log(serverNotificationPayload.data.NotificationType);
   }
@@ -87,7 +92,7 @@ ipcRenderer.send(START_NOTIFICATION_SERVICE, senderId)
 
 function startUp(){
   //console.log("start-up");
-  window.currentConversationId = 1;
+  window.activeConversationId = 2;
   requestConversationList();
 }
 function requestConversationList(){
@@ -118,4 +123,8 @@ function getMessageList(){
     console.log(JSON.parse(body));
     window.updateMessages(messages);
   });
+}
+function addNewMessage(message){
+  console.log(message);
+  window.recieveNewMessage(message);
 }

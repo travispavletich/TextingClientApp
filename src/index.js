@@ -10,7 +10,7 @@ window.updateMessages = (messages) => {
     var messageList = [];
     for(i=0; i<messages.length; i++){
         var m = {
-            "id": i,
+            "id": i+1,
             "sender": messages[i].sender,
             "message": messages[i].messageBody,
             "number": messages[i].sender,
@@ -26,7 +26,7 @@ window.updateConversations = (conversations) => {
     var conversationList = [];
     for(i=0; i<conversations.length; i++){
         var c = {
-            "id": i,
+            "id": i+1,
             "sender": conversations[i].participants[1],
             "preview": conversations[i].mostRecent,
             "active": false
@@ -53,5 +53,25 @@ window.sendNewMessage = (message) => {
 }
 
 window.recieveNewMessage = (newMessage) => {
-    
+    console.log("active convo:" + window.activeConversationId);
+    var conversationList = TopMostParent.state.convos;
+    var messageList = TopMostParent.state.messages;
+    var i;
+    for(i=0; i<conversationList.length; i++){
+        if(conversationList[i].id == newMessage.ConversationID){
+            conversationList[i].preview = newMessage.Message;
+        }
+    }
+    if(newMessage.ConversationID == window.activeConversationId){
+        var m = {
+            "id": messageList.length,
+            "sender": newMessage.Sender,
+            "message": newMessage.Message,
+            "number": newMessage.Sender,
+            "self": newMessage.Self
+        }
+        messageList.push(m)
+    }
+    TopMostParent.setState({messages: messageList,
+        convos: conversationList});
 }
