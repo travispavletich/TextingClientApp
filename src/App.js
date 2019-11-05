@@ -81,7 +81,7 @@ class App extends Component{
     var message = text;
     var data = {
       "Message": message,
-      "Recipients": ["1234567890"],
+      "Recipients": ["6108830941"],
       "MessageId": guid
     }
     const request = require('request');

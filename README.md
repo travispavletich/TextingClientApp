@@ -1,22 +1,34 @@
-Run npm build first if you have just pulled the repo.
+# Client Application
 
-Steps to run it in dev mode: 
+The desktop client application is a react application within an electron container
 
-```// starts the react server at localhost:3000
-npm start 		 
+A finalized release version is not yet available because the application is still in development.
+
+#### Clone the Repo
+```bash
+git clone https://github.com/travispavletich/TextingClientApp
 ```
 
-In a separate terminal / cmd window
-
-```//starts the electron app in dev mode
-npm run electron-dev
+#### Setup
+ - Ensure that npm is installed already : https://www.npmjs.com/get-npm
+ - cd into the repo directory
+ ```bash 
+npm install 
 ```
-OR 
-```// If you’re on windows
+
+### Running the Application
+```bash
+npm start
+```
+
+For windows open a new CMD window in the same directory
+```bash
 npm run electron-dev-windows
 ```
 
-###Steps to run it in Production Mode:
-```//starts the electron app in production mode
-npm run electron```
+For Unix open a new terminal in the same directory
+```bash
+npm run electron-dev
+```
 
+The Client application is now open in an electron-hosted window.
