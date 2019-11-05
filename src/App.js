@@ -69,13 +69,23 @@ class App extends Component{
 
   // Send a new message
   sendMessage = (text) => {
+    var guid = uuid.v4();
     const newMessage = {
-      id: uuid.v4(),
+      id: uuid,
       sender: 'me',
       text,
       number: '1112223333',
       self: true
     }
+    var url = "http://localhost:5000/Client/SendMessage";
+    var message = text;
+    var data = {
+      "Message": message,
+      "Recipients": ["1234567890"],
+      "MessageId": guid
+    }
+    const request = require('request');
+    request.post({url: url, qs:data}, function(err, response, body){});
     this.setState( {messages: [...this.state.messages, newMessage]})
   }
 
