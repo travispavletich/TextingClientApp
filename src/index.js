@@ -48,7 +48,7 @@ window.sendNewMessage = (message) => {
         "id": uuid.v4(),
         "sender": "me",
         "text": message,
-        "number": 1234567890,
+        "number": 6108830941,
         "self": true
     }
     messageList.push(newMessage);

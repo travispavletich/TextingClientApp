@@ -48,6 +48,8 @@ ipcRenderer.on(TOKEN_UPDATED, (_, token) => {
 ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   // check to see if payload contains a body string, if it doesn't consider it a silent push
   if(serverNotificationPayload.data.NotificationType === "MessageList"){
+	getMessageList();
+	/*console.log(serverNotificationPayload.data);
     var messages = JSON.parse(serverNotificationPayload.data.Messages);
     console.log(messages);
     var i;
@@ -64,13 +66,15 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
 
       var messageArea = document.getElementById("messageArea");
       messageArea.appendChild(container);
-    }
+	  
+    } */
     
   }
   else if(serverNotificationPayload.data.NotificationType === "ConversationList"){
     getConversationList();
   }
   else if(serverNotificationPayload.data.NotificationType === "RetrieveMessageList"){
+	console.log("TEST");
     getMessageList();
   }
   else if(serverNotificationPayload.data.NotificationType === "NewMessageRecieved"){
@@ -93,12 +97,14 @@ ipcRenderer.send(START_NOTIFICATION_SERVICE, senderId)
 function startUp(){
   //console.log("start-up");
   requestConversationList();
+  requestInitialMessages();	// This should probably be elsewhere
 }
 function requestConversationList(){
   request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
 }
 function requestInitialMessages(){
-  request('http://localhost:5000/Client/RetrieveMessageList?conversationID=1', function (error, response, body) {});
+  request('http://localhost:5000/Client/RetrieveMessageList?conversationID=4', function (error, response, body) {
+  });
 }
 function getConversationList(){
   request('http://localhost:5000/Client/ConversationList', function (error, response, body) {
@@ -109,14 +115,13 @@ function getConversationList(){
     console.log(JSON.parse(body));
     var conversations = JSON.parse(body).data.Conversations;
     window.updateConversations(conversations);
-    requestInitialMessages();
   });
 }
 function getMessageList(){
-  request('http://localhost:5000/Client/MessageList?conversationID=1', function (error, response, body) {
+  request('http://localhost:5000/Client/MessageList?conversationID=4', function (error, response, body) {
     console.error('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:', body); // Print the HTML for the Google homepage.
+    console.log('body:', body); 
 
     var messages = JSON.parse(body).data.Messages;
     console.log(JSON.parse(body));
