@@ -1,0 +1,19 @@
+@import 'Reset.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+/* selects the wrapper */
+.wrapper{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-column-gap: 1em;
+}
+
+.heading{
+    margin-top: .3em;
+    margin-bottom: .3em;
+    font-weight: 300;
+}

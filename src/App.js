@@ -1,10 +1,12 @@
 import React, {Component} from "react";
+
 import MessageList from './components/MessageList';
 import ConvoList from './components/ConvoList';
 import SendMessage from './SendMessage';
+
 import uuid from 'uuid';
 
-import './App.css';
+import './scss/Main.scss';
 
 
 class App extends Component{
@@ -70,13 +72,6 @@ class App extends Component{
   // Send a new message
   sendMessage = (text) => {
     var guid = uuid.v4();
-    const newMessage = {
-      id: uuid,
-      sender: 'me',
-      text,
-      number: '1112223333',
-      self: true
-    }
     var url = "http://localhost:5000/Client/SendMessage";
     var message = text;
     var data = {
@@ -86,7 +81,6 @@ class App extends Component{
     }
     const request = require('request');
     request.post({url: url, qs:data}, function(err, response, body){});
-    this.setState( {messages: [...this.state.messages, newMessage]})
   }
 
 
@@ -94,19 +88,20 @@ class App extends Component{
     const style_MessageList = {
       maxHeight: '100px',
       maxWidth: '95%',
-      overflowY: 'scroll'
+      overflowY: 'scroll',
+      margin: '0',
     };
 
     return (
       <div className="App">
         <div className="wrapper">
           <div>
-            <h1>Convo List</h1>
+            <h1 className="heading" style={{ marginLeft: ".4em"}}>Messages</h1>
             <ConvoList convos={this.state.convos} />
           </div>
           
           <div>
-            <h1>This WOULD be alan's name</h1>
+            <h1 className="heading">Alan Kang</h1>
             <div style={style_MessageList}>
               <MessageList messages={this.state.messages} />
             </div>

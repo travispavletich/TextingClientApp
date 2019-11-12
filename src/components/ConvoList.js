@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Convo from "./Convo"
 import PropTypes from 'prop-types';
 
-
 class ConvoList extends Component {
     
     render() {

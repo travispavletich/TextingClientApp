@@ -1,0 +1,91 @@
+/* TEXT COLORS */
+/* GRAYS ......... 1 = lightest */
+/* ACCENTS */
+/* FONTS */
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBook.otf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTMedium.otf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTLight.otf);
+  font-weight: lighter;
+}
+body {
+  font-family: Futura, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16;
+  color: #ffffff;
+  background-color: #24292E;
+}
+
+::placeholder {
+  color: #24292E;
+}
+
+/* TEXT COLORS */
+/* GRAYS ......... 1 = lightest */
+/* ACCENTS */
+/* FONTS */
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBook.otf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTMedium.otf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTLight.otf);
+  font-weight: lighter;
+}
+body {
+  font-family: Futura, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16;
+  color: #ffffff;
+  background-color: #24292E;
+}
+
+::placeholder {
+  color: #24292E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* selects the wrapper */
+.wrapper {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-column-gap: 1em;
+}
+
+.heading {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=main.css.map */

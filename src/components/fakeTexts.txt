@@ -1,0 +1,59 @@
+{
+        id: uuid.v4(),
+        sender: 'alan',
+        text: 'oh my lord',
+        number: '6098889999',
+        self: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'skrtskrt',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'alan',
+        text: 'N O !',
+        number: '6098889999',
+        self: false
+      },
+
+
+
+
+
+
+
+ {
+        id: uuid.v4(),
+        sender: 'alan',
+        preview: 'N O !',
+        active: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al calzone',
+        preview: 'are you italian my man',
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al lasagna',
+        preview: 'I think you still owe me from Costco',
+        active: false
+      }

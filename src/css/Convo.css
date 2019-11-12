@@ -1,0 +1,37 @@
+/* TEXT COLORS */
+/* GRAYS ......... 1 = lightest */
+/* ACCENTS */
+/* FONTS */
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBook.otf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTMedium.otf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTLight.otf);
+  font-weight: lighter;
+}
+body {
+  font-family: Futura, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16;
+  color: #ffffff;
+  background-color: #24292E;
+}
+
+::placeholder {
+  color: #24292E;
+}
+
+/*# sourceMappingURL=convo.css.map */

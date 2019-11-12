@@ -1,0 +1,58 @@
+/* TEXT COLORS */
+/* GRAYS ......... 1 = lightest */
+/* ACCENTS */
+/* FONTS */
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBook.otf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTMedium.otf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTLight.otf);
+  font-weight: lighter;
+}
+body {
+  font-family: Futura, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16;
+  color: #ffffff;
+  background-color: #24292E;
+}
+
+::placeholder {
+  color: #24292E;
+}
+
+.newMessage {
+  border: 0;
+  padding: 5px;
+  margin: 10px;
+  background: white;
+  width: 80%;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #D093DB;
+  color: #ffffff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+input:focus {
+  background: #000000;
+}
+
+/*# sourceMappingURL=sendmessage.css.map */

@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 
+import './css/SendMessage.css';
+import { colors } from "./vars_colors"
+
 export class SendMessage extends Component {
     state = {
         text: ''
@@ -18,15 +21,16 @@ export class SendMessage extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
+            <form onSubmit={this.onSubmit} className={{ display: 'flex' }}>
                 {/* new message box */}
                 <input 
-                    type="text" 
-                    name="text" 
-                    style = {{ flex: '10', padding: '5px' }}
-                    placeholder="Type a message..." 
-                    value={this.state.text}
-                    onChange={this.onChange}
+                    type = "text" 
+                    name = "text" 
+                    style = {{ flex: '10', padding: '5px', color: colors.gray3 }}
+                    placeholder = "Type a message..." 
+                    value = {this.state.text}
+                    onChange = {this.onChange}
+                    className = "newMessage"
                 />
 
                 {/* submit message button */}
