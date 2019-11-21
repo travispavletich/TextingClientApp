@@ -37,7 +37,7 @@ window.updateConversations = (conversations) => {
         }
         if(i==0){
             c.active = true;
-            window.activeConversationId = cid
+            window.activeConversationId = cid;
         }
         conversationList.push(c);
     }

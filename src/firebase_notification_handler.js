@@ -97,13 +97,16 @@ ipcRenderer.send(START_NOTIFICATION_SERVICE, senderId)
 function startUp(){
   //console.log("start-up");
   requestConversationList();
-  requestInitialMessages();	// This should probably be elsewhere
+  window.activeConversationId = 0;
+  //requestInitialMessages();	// This should probably be elsewhere
 }
 function requestConversationList(){
   request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
 }
 function requestInitialMessages(){
-  request('http://localhost:5000/Client/RetrieveMessageList?conversationID=4', function (error, response, body) {
+  var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+window.activeConversationId;
+  console.log(reqURL);
+  request(reqURL, function (error, response, body) {
   });
 }
 function getConversationList(){
@@ -115,10 +118,13 @@ function getConversationList(){
     console.log(JSON.parse(body));
     var conversations = JSON.parse(body).data.Conversations;
     window.updateConversations(conversations);
+    requestInitialMessages();
   });
 }
 function getMessageList(){
-  request('http://localhost:5000/Client/MessageList?conversationID=4', function (error, response, body) {
+  var reqURL = 'http://localhost:5000/Client/MessageList?conversationID='+window.activeConversationId;
+  console.log(reqURL);
+  request(reqURL, function (error, response, body) {
     console.error('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     console.log('body:', body); 
