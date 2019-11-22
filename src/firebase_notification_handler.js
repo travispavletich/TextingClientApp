@@ -30,6 +30,8 @@ ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   
   console.log('service successfully started', token)
   request('http://localhost:5000/Client/Token', function (error, response, body) {
+  console.log(response);  
+  console.log(body);
   });
   startUp();
 })
@@ -48,27 +50,9 @@ ipcRenderer.on(TOKEN_UPDATED, (_, token) => {
 ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   // check to see if payload contains a body string, if it doesn't consider it a silent push
   if(serverNotificationPayload.data.NotificationType === "MessageList"){
-	getMessageList();
-	/*console.log(serverNotificationPayload.data);
-    var messages = JSON.parse(serverNotificationPayload.data.Messages);
-    console.log(messages);
-    var i;
-    for (i = 0; i < messages.length; i++) {
-      var container = document.createElement('div');
-      var header = document.createElement('h3');
-      var node = document.createTextNode(messages[i].Sender);
-      header.appendChild(node);
-      container.appendChild(header);
-      var body = document.createElement('p');
-      var node2 = document.createTextNode(messages[i].MessageBody);
-      body.appendChild(node2);
-      container.appendChild(body);
-
-      var messageArea = document.getElementById("messageArea");
-      messageArea.appendChild(container);
-	  
-    } */
-    
+    window.updateActiveConversation(serverNotificationPayload.data.ConversationID);
+    window.activeConversationId = serverNotificationPayload.data.ConversationID;
+	  getMessageList();  
   }
   else if(serverNotificationPayload.data.NotificationType === "ConversationList"){
     getConversationList();

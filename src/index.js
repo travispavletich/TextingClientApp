@@ -6,7 +6,33 @@ import './css/index.css';
 import App from './App';
 import uuid from 'uuid';
 
+const request = require('request');
 const TopMostParent = ReactDOM.render(<App />, document.getElementById('root'));
+/*
+window.requestMessageList = (conversationID) => {
+    if(conversationID != window.activeConversationId){
+        var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+conversationID;
+        request(reqURL, function (error, response, body) {
+            window.activeConversationId = conversationID;
+        });
+    }
+}*/
+window.updateActiveConversation = (id) => {
+    var convos = []
+    var conversationList = TopMostParent.state.convos;
+    var i;
+    for(i=0; i<conversationList.length; i++){
+        var c = conversationList[i];
+        c.active = false;
+        if(c.id == id){
+            c.active = true;
+        }
+        convos.push(c);
+    }
+    //this.props.convo.active = true;
+    window.activeConversationId = id;
+    TopMostParent.setState({convos: convos});
+}
 
 window.updateMessages = (messages) => {
     var i;
