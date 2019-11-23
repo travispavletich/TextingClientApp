@@ -63,8 +63,17 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   }
   else if(serverNotificationPayload.data.NotificationType === "NewMessageRecieved"){
     var message = JSON.parse(serverNotificationPayload.data.Message);
+    if(message.ConversationID == window.activeConversationId){
+      window.requestMessages = 0;
+    }
+    else{
+      window.requestMessages = 1;
+    }
+    requestConversationList();
+    /*
+    var message = JSON.parse(serverNotificationPayload.data.Message);
     console.log(message);
-    addNewMessage(message);
+    addNewMessage(message);*/
   }
   else{
     console.log(serverNotificationPayload.data.NotificationType);
@@ -80,8 +89,9 @@ ipcRenderer.send(START_NOTIFICATION_SERVICE, senderId)
 
 function startUp(){
   //console.log("start-up");
-  requestConversationList();
   window.activeConversationId = 0;
+  window.requestMessages = 1;
+  requestConversationList();
   //requestInitialMessages();	// This should probably be elsewhere
 }
 function requestConversationList(){
@@ -102,7 +112,15 @@ function getConversationList(){
     console.log(JSON.parse(body));
     var conversations = JSON.parse(body).data.Conversations;
     window.updateConversations(conversations);
-    requestInitialMessages();
+    if(window.requestMessages == 1){
+      requestInitialMessages();
+      //console.log("need to request");
+    }
+    else{
+      getMessageList();
+      //console.log("dont need to re-request");
+    }
+    
   });
 }
 function getMessageList(){
