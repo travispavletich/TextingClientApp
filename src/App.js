@@ -81,6 +81,14 @@ class App extends Component{
     }
     const request = require('request');
     request.post({url: url, qs:data}, function(err, response, body){});
+    var newMessage = {
+      id: guid,
+      sender: 'me',
+      text: message,
+      number: '1234',
+      self: true
+    }
+    this.setState( {messages: [...this.state.messages, newMessage]});
   }
 
 
