@@ -30,6 +30,8 @@ ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   
   console.log('service successfully started', token)
   request('http://localhost:5000/Client/Token', function (error, response, body) {
+  console.log(response);  
+  console.log(body);
   });
   startUp();
 })
@@ -48,27 +50,9 @@ ipcRenderer.on(TOKEN_UPDATED, (_, token) => {
 ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   // check to see if payload contains a body string, if it doesn't consider it a silent push
   if(serverNotificationPayload.data.NotificationType === "MessageList"){
-	getMessageList();
-	/*console.log(serverNotificationPayload.data);
-    var messages = JSON.parse(serverNotificationPayload.data.Messages);
-    console.log(messages);
-    var i;
-    for (i = 0; i < messages.length; i++) {
-      var container = document.createElement('div');
-      var header = document.createElement('h3');
-      var node = document.createTextNode(messages[i].Sender);
-      header.appendChild(node);
-      container.appendChild(header);
-      var body = document.createElement('p');
-      var node2 = document.createTextNode(messages[i].MessageBody);
-      body.appendChild(node2);
-      container.appendChild(body);
-
-      var messageArea = document.getElementById("messageArea");
-      messageArea.appendChild(container);
-	  
-    } */
-    
+    window.updateActiveConversation(serverNotificationPayload.data.ConversationID);
+    window.activeConversationId = serverNotificationPayload.data.ConversationID;
+	  getMessageList();  
   }
   else if(serverNotificationPayload.data.NotificationType === "ConversationList"){
     getConversationList();
@@ -79,8 +63,17 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
   }
   else if(serverNotificationPayload.data.NotificationType === "NewMessageRecieved"){
     var message = JSON.parse(serverNotificationPayload.data.Message);
+    if(message.ConversationID == window.activeConversationId){
+      window.requestMessages = 0;
+    }
+    else{
+      window.requestMessages = 1;
+    }
+    requestConversationList();
+    /*
+    var message = JSON.parse(serverNotificationPayload.data.Message);
     console.log(message);
-    addNewMessage(message);
+    addNewMessage(message);*/
   }
   else{
     console.log(serverNotificationPayload.data.NotificationType);
@@ -96,14 +89,18 @@ ipcRenderer.send(START_NOTIFICATION_SERVICE, senderId)
 
 function startUp(){
   //console.log("start-up");
+  window.activeConversationId = 0;
+  window.requestMessages = 1;
   requestConversationList();
-  requestInitialMessages();	// This should probably be elsewhere
+  //requestInitialMessages();	// This should probably be elsewhere
 }
 function requestConversationList(){
   request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
 }
 function requestInitialMessages(){
-  request('http://localhost:5000/Client/RetrieveMessageList?conversationID=4', function (error, response, body) {
+  var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+window.activeConversationId;
+  console.log(reqURL);
+  request(reqURL, function (error, response, body) {
   });
 }
 function getConversationList(){
@@ -115,10 +112,21 @@ function getConversationList(){
     console.log(JSON.parse(body));
     var conversations = JSON.parse(body).data.Conversations;
     window.updateConversations(conversations);
+    if(window.requestMessages == 1){
+      requestInitialMessages();
+      //console.log("need to request");
+    }
+    else{
+      getMessageList();
+      //console.log("dont need to re-request");
+    }
+    
   });
 }
 function getMessageList(){
-  request('http://localhost:5000/Client/MessageList?conversationID=4', function (error, response, body) {
+  var reqURL = 'http://localhost:5000/Client/MessageList?conversationID='+window.activeConversationId;
+  console.log(reqURL);
+  request(reqURL, function (error, response, body) {
     console.error('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     console.log('body:', body); 

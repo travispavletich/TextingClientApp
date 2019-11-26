@@ -14,6 +14,24 @@ export class Convo extends Component {
         // ))
     }
 
+    requestMessageList = () => {
+        var id = this.props.convo.id;
+        const request = require('request');
+        if(id != window.activeConversationId){
+            var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+id;
+            console.log(reqURL);
+            request(reqURL, function (error, response, body) {
+                //console.log(body);
+                //console.log(response.resultMessage);
+                if(response.resultMessage === "Successfully retrieved messages from server"){
+                    console.log("testing");
+                    //window.updateActiveConversation(id);
+                }
+                
+            });
+        }
+    }
+
     render() {
         const { sender, preview, active } = this.props.convo;
         let convoStyle = '';
@@ -23,8 +41,7 @@ export class Convo extends Component {
         else { convoStyle += 'inactive'; }        
 
         return (
-            //onClick={this.handleClick}
-            <div className={convoStyle}>
+            <div style={this.getStyle()} onClick={(e) => this.requestMessageList(e)} >
                 <p style = {{ fontWeight: '300' }}>
                     { sender }
                 </p>
