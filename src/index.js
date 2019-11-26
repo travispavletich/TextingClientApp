@@ -34,6 +34,27 @@ window.updateActiveConversation = (id) => {
     TopMostParent.setState({convos: convos});
 }
 
+window.requestInitialMessages = () => {
+    var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+window.activeConversationId;
+    console.log(reqURL);
+    request(reqURL, function (error, response, body) {
+    });
+}
+
+window.getMessageList = () => {
+    var reqURL = 'http://localhost:5000/Client/MessageList?conversationID='+window.activeConversationId;
+    console.log(reqURL);
+    request(reqURL, function (error, response, body) {
+      console.error('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); 
+  
+      var messages = JSON.parse(body).data.Messages;
+      console.log(JSON.parse(body));
+      window.updateMessages(messages);
+    });
+}
+
 window.updateMessages = (messages) => {
     var i;
     var messageList = [];
@@ -61,13 +82,23 @@ window.updateConversations = (conversations) => {
             "preview": conversations[i].mostRecent,
             "active": false
         }
-        if(i==0){
+        if(i==0 && window.firstLoad==1){
             c.active = true;
             window.activeConversationId = cid;
         }
+        else if(cid == window.activeConversationId){
+            c.active = true;
+        }
         conversationList.push(c);
     }
+    window.firstLoad = 0;
     TopMostParent.setState({convos: conversationList});
+    if(window.requestMessages == 1){
+        window.requestInitialMessages();
+    }
+    else{
+        window.getMessageList();
+    }
 }
 
 window.sendNewMessage = (message) => {
