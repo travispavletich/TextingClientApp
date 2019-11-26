@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { colors } from "../vars_colors"
+import "../scss/Convo.scss"
+
 
 export class Convo extends Component {
     //change style of convo depending on activity
@@ -15,17 +17,29 @@ export class Convo extends Component {
         }
     }
 
+    handleClick(){
+        // this.setState(state =>({
+        //     this.props.convo.active= !
+        // }
+
+        // ))
+    }
+
     render() {
-        const { id, sender, preview } = this.props.convo;
+        const { sender, preview, active } = this.props.convo;
+
         
         return (
-            <div style={this.getStyle()}>
+            // style={this.getStyle()}
+            //onClick={this.handleClick}
+            <div className='active' >
                 <p style = {{ fontWeight: '300' }}>
                     { sender }
+                </p>
                 <br />
                 <div style={{ fontWeight: 'normal'}}>
-                    { preview } </div>
-                </p>
+                    { preview } 
+                </div>
             </div>
         )
     }

@@ -1,1 +1,9 @@
-@import 'reset';
+@import 'Reset';
+
+.active{
+    background: orange;
+}
+
+.inactive{
+    background: blue;
+}

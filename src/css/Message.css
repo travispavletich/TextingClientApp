@@ -34,4 +34,19 @@ body {
   color: #24292E;
 }
 
-/*# sourceMappingURL=Convo.css.map */
+.bubble {
+  border-radius: 20px;
+  padding: 8px 20px 8px 20px;
+}
+
+.myMessage {
+  float: right;
+  background: #D093DB;
+}
+
+.theirMessage {
+  float: left;
+  background: #444D56;
+}
+
+/*# sourceMappingURL=Message.css.map */

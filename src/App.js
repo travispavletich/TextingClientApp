@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 
 import MessageList from './components/MessageList';
+import Convo from './components/Convo';
 import ConvoList from './components/ConvoList';
 import SendMessage from './SendMessage';
 
 import uuid from 'uuid';
 
 import './scss/Main.scss';
+import "./scss/Convo.scss"
 
 
 class App extends Component{
@@ -32,6 +34,27 @@ class App extends Component{
         text: 'skrtskrt',
         number: '1112223333',
         self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'alan',
+        text: 'N O !',
+        number: '6098889999',
+        self: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'alan',
+        text: 'N O !',
+        number: '6098889999',
+        self: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'alan',
+        text: 'N O !',
+        number: '6098889999',
+        self: false
       },
       {
         id: uuid.v4(),
@@ -83,10 +106,20 @@ class App extends Component{
     request.post({url: url, qs:data}, function(err, response, body){});
   }
 
+  componentDidMount() {
+    var matches = document.querySelectorAll(".active");
+    // matches.forEach(
+    //   onClick(
+    //       console.log('test')
+    //   )
+    // )
+  }
 
   render() {
+
+    // changes the size of the message display
     const style_MessageList = {
-      maxHeight: '100px',
+      maxHeight: '200px',
       maxWidth: '95%',
       overflowY: 'scroll',
       margin: '0',
