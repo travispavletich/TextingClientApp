@@ -1,77 +1,17 @@
-/* TEXT COLORS */
-/* GRAYS ......... 1 = lightest */
-/* ACCENTS */
-/* FONTS */
-@font-face {
-  font-family: Futura;
-  src: url(../fonts/FuturaPTBook.otf);
-  font-weight: normal;
-}
-@font-face {
-  font-family: Futura;
-  src: url(../fonts/FuturaPTMedium.otf);
-  font-weight: 300;
-}
-@font-face {
-  font-family: Futura;
-  src: url(../fonts/FuturaPTBold.otf);
-  font-weight: bold;
-}
-@font-face {
-  font-family: Futura;
-  src: url(../fonts/FuturaPTLight.otf);
-  font-weight: lighter;
-}
-body {
-  font-family: Futura, Arial, sans-serif;
-  line-height: 1.4;
-  font-size: 16;
-  color: #ffffff;
-  background-color: #24292E;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import 'Reset.scss';
+ *   |         ^^^^^^^^^^^^
+ *   '
+ *   scss\app.scss 1:9  root stylesheet */
 
-::placeholder {
-  color: #24292E;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import 'Reset.scss';\d\a   \2502          ^^^^^^^^^^^^\a   \2575 \a   scss\\app.scss 1:9  root stylesheet";
 }
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* selects the wrapper */
-.wrapper {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  grid-column-gap: 1em;
-}
-
-.heading {
-  margin-top: 0.3em;
-  margin-bottom: 0.3em;
-  font-weight: 300;
-}
-
-.messageList {
-  height: 50vh;
-  max-width: 95%;
-  overflow-y: scroll;
-  margin: 0;
-}
-
-.messageList::-webkit-scrollbar {
-  width: 12px;
-  color: orange;
-}
-
-.messageList::-webkit-scrollbar-track {
-  border-radius: 10px;
-  color: blue;
-}
-
-.messageList::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  color: red;
-}
-
-/*# sourceMappingURL=App.css.map */
