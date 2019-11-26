@@ -41,7 +41,7 @@ export class Convo extends Component {
         else { convoStyle += 'inactive'; }        
 
         return (
-            <div style={this.getStyle()} onClick={(e) => this.requestMessageList(e)} >
+            <div className={convoStyle} onClick={(e) => this.requestMessageList(e)} >
                 <p style = {{ fontWeight: '300' }}>
                     { sender }
                 </p>
