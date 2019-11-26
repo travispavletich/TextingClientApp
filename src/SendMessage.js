@@ -26,7 +26,6 @@ export class SendMessage extends Component {
                 <input 
                     type = "text" 
                     name = "text" 
-                    style = {{ flex: '10', padding: '5px', color: colors.gray3 }}
                     placeholder = "Type a message..." 
                     value = {this.state.text}
                     onChange = {this.onChange}

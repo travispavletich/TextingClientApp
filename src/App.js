@@ -89,7 +89,8 @@ class App extends Component{
         preview: 'I think you still owe me from Costco',
         active: false
       }
-    ]
+    ],
+    selected: undefined
   }
 
   // Send a new message
@@ -114,6 +115,21 @@ class App extends Component{
     //   )
     // )
   }
+
+  makeConvoList = () => {
+    const { selected, convos } = this.state;
+    return convos.map(convo => {
+      const background = selected === convo ? "yellow" : "green";
+      return (
+        <div
+          style={{ background, border: "1px solid black" }}
+          onClick={() => this.setState({ selected: convo })}
+        >
+          {convo}
+        </div>
+      );
+    });
+  };
 
   render() {
 

@@ -3,14 +3,36 @@
 .bubble {
     border-radius: 20px;
     padding: 8px 20px 8px 20px;
+    margin-bottom: 8px;
 }
 
 .myMessage {
+    @extend .bubble;
     float: right;
     background: $purp;
 }
 
 .theirMessage {
+    @extend .bubble;
     float: left;
     background: $gray1;
+}
+
+.name {
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+.myName {
+    @extend .name;
+    text-align: right;
+}
+
+.theirName {
+    @extend .name;
+    text-align: left;
+}
+
+.orange {
+    background: $green;
 }

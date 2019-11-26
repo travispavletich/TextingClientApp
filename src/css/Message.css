@@ -34,9 +34,10 @@ body {
   color: #24292E;
 }
 
-.bubble {
+.bubble, .theirMessage, .myMessage {
   border-radius: 20px;
   padding: 8px 20px 8px 20px;
+  margin-bottom: 8px;
 }
 
 .myMessage {
@@ -47,6 +48,23 @@ body {
 .theirMessage {
   float: left;
   background: #444D56;
+}
+
+.name, .theirName, .myName {
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.myName {
+  text-align: right;
+}
+
+.theirName {
+  text-align: left;
+}
+
+.orange {
+  background: #6FCF97;
 }
 
 /*# sourceMappingURL=Message.css.map */
