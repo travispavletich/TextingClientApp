@@ -30,13 +30,12 @@ export class Convo extends Component {
 
         
         return (
-            // style={this.getStyle()}
+            //  style={this.getStyle()}
             //onClick={this.handleClick}
-            <div className='active' >
+            <div className='active'>
                 <p style = {{ fontWeight: '300' }}>
                     { sender }
                 </p>
-                <br />
                 <div style={{ fontWeight: 'normal'}}>
                     { preview } 
                 </div>

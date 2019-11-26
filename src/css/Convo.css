@@ -34,4 +34,20 @@ body {
   color: #24292E;
 }
 
+.active {
+  background: orange;
+  color: #ffffff;
+  border-bottom: 2px solid;
+  border-bottom-Color: #24292E;
+  padding: 10px;
+}
+
+.inactive {
+  background: blue;
+  color: #ffffff;
+  border-bottom: 2px solid;
+  border-bottom-Color: #24292E;
+  padding: 10px;
+}
+
 /*# sourceMappingURL=Convo.css.map */

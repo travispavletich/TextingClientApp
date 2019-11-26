@@ -2,8 +2,20 @@
 
 .active{
     background: orange;
+
+    //background: $gray1;
+    color: $white1;
+    border-bottom: 2px solid;
+    border-bottom-Color: $gray3;
+    padding: 10px;
 }
 
 .inactive{
     background: blue;
+    //background: $gray2;
+    
+    color: $white1;
+    border-bottom: 2px solid;
+    border-bottom-Color: $gray3;
+    padding: 10px;
 }
