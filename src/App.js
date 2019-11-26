@@ -17,7 +17,7 @@ class App extends Component{
       {
         id: uuid.v4(),
         sender: 'alan',
-        text: 'oh my lord',
+        text: 'oh my lord bruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuh why tho',
         number: '6098889999',
         self: false
       },
@@ -86,7 +86,7 @@ class App extends Component{
       {
         id: uuid.v4(),
         sender: 'al lasagna',
-        preview: 'I think you still owe me from Costco',
+        preview: 'I think you still owe me from Costco bro',
         active: false
       }
     ],
@@ -132,15 +132,6 @@ class App extends Component{
   };
 
   render() {
-
-    // changes the size of the message display
-    const style_MessageList = {
-      maxHeight: '200px',
-      maxWidth: '95%',
-      overflowY: 'scroll',
-      margin: '0',
-    };
-
     return (
       <div className="App">
         <div className="wrapper">
@@ -151,7 +142,7 @@ class App extends Component{
           
           <div>
             <h1 className="heading">Alan Kang</h1>
-            <div style={style_MessageList}>
+            <div className="messageList">
               <MessageList messages={this.state.messages} />
             </div>
             <SendMessage sendMessage={this.sendMessage} />

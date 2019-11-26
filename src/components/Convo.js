@@ -6,17 +6,6 @@ import "../scss/Convo.scss"
 
 
 export class Convo extends Component {
-    //change style of convo depending on activity
-    getStyle = () => {
-        return {
-            background: this.props.convo.active ? colors.gray1 : colors.gray2,
-            color: this.props.convo.active ? colors.white1 : colors.white3,
-            borderBottom: '2px solid',
-            borderBottomColor: colors.gray3,
-            padding: '10px',
-        }
-    }
-
     handleClick(){
         // this.setState(state =>({
         //     this.props.convo.active= !
@@ -27,12 +16,15 @@ export class Convo extends Component {
 
     render() {
         const { sender, preview, active } = this.props.convo;
+        let convoStyle = '';
+    
+        // set style based on active or not
+        if (active) { convoStyle += 'active'; }
+        else { convoStyle += 'inactive'; }        
 
-        
         return (
-            //  style={this.getStyle()}
             //onClick={this.handleClick}
-            <div className='active'>
+            <div className={convoStyle}>
                 <p style = {{ fontWeight: '300' }}>
                     { sender }
                 </p>

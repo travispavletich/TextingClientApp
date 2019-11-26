@@ -34,23 +34,25 @@ body {
   color: #24292E;
 }
 
+.container {
+  display: flex;
+}
+
 .newMessage {
+  flex: 0 0 50%;
   border: 0;
   padding: 10px;
   background: white;
-  width: 80%;
   border-radius: 25px;
-  padding-left: 15px;
 }
 
 .btn {
-  display: inline-block;
   border: none;
   background: #D093DB;
   color: #ffffff;
-  padding: 7px 20px;
   cursor: pointer;
   border-radius: 5px;
+  flex: 1;
 }
 
 input[type=text] {

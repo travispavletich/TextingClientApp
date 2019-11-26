@@ -1,21 +1,28 @@
 @import 'Reset';
 
-.active{
-    background: orange;
+.textCutOff{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-    //background: $gray1;
-    color: $white1;
+.convo{
+    @extend .textCutOff;
     border-bottom: 2px solid;
-    border-bottom-Color: $gray3;
+    border-color: $gray3;
     padding: 10px;
 }
 
+.active{
+    @extend .convo;
+
+    background: $gray1;
+    color: $white1;
+}
+
 .inactive{
-    background: blue;
-    //background: $gray2;
+    @extend .convo;
+    background: $gray2;
     
     color: $white1;
-    border-bottom: 2px solid;
-    border-bottom-Color: $gray3;
-    padding: 10px;
 }

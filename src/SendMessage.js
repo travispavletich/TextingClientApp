@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import './css/SendMessage.css';
+import './scss/SendMessage.scss';
 import { colors } from "./vars_colors"
 
 export class SendMessage extends Component {
@@ -21,7 +21,7 @@ export class SendMessage extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} className={{ display: 'flex' }}>
+            <form onSubmit={this.onSubmit} className="container">
                 {/* new message box */}
                 <input 
                     type = "text" 

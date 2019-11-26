@@ -34,20 +34,26 @@ body {
   color: #24292E;
 }
 
-.active {
-  background: orange;
-  color: #ffffff;
+.textCutOff, .convo, .inactive, .active {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.convo, .inactive, .active {
   border-bottom: 2px solid;
-  border-bottom-Color: #24292E;
+  border-color: #24292E;
   padding: 10px;
 }
 
-.inactive {
-  background: blue;
+.active {
+  background: #444D56;
   color: #ffffff;
-  border-bottom: 2px solid;
-  border-bottom-Color: #24292E;
-  padding: 10px;
+}
+
+.inactive {
+  background: #2F363D;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=Convo.css.map */

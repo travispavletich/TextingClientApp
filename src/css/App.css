@@ -52,4 +52,26 @@ body {
   font-weight: 300;
 }
 
+.messageList {
+  height: 50vh;
+  max-width: 95%;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+.messageList::-webkit-scrollbar {
+  width: 12px;
+  color: orange;
+}
+
+.messageList::-webkit-scrollbar-track {
+  border-radius: 10px;
+  color: blue;
+}
+
+.messageList::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  color: red;
+}
+
 /*# sourceMappingURL=App.css.map */

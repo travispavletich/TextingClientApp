@@ -2,24 +2,9 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 
 import { colors } from "../vars_colors"
-import '../css/Message.css'
+import '../scss/Message.scss'
 
 export class Message extends Component{
-  //change style depending on sender (self vs contact)
-  getStyle = () => {
-    return {
-      className: 'orange',
-    }
-  }
-
-  getNameStyle = () => {
-    return {
-      textAlign: this.props.message.self ? 'right' : 'left',
-      fontWeight: '300'
-
-    }
-  }
-
 
   render() {
     const { sender, text, number, self } = this.props.message;
