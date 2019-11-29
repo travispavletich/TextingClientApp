@@ -99,9 +99,10 @@ class App extends Component{
     var url = "http://localhost:5000/Client/SendMessage";
     var message = text;
     var data = {
-      "Message": message,
-      "Recipients": ["6108830941"],
-      "MessageId": guid
+      "messageBody": message,
+      "sender": ["6108830941"],
+      "MessageId": guid,
+      "converationID": window.activeConversationId
     }
     const request = require('request');
     request.post({url: url, qs:data}, function(err, response, body){});
