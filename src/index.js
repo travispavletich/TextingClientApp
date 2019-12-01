@@ -26,6 +26,9 @@ window.updateActiveConversation = (id) => {
         c.active = false;
         if(c.id == id){
             c.active = true;
+            TopMostParent.setState({names: c.names});
+            TopMostParent.setState({numbers: c.numbers});
+            window.updateHeader();
         }
         convos.push(c);
     }
@@ -83,6 +86,8 @@ window.updateConversations = (conversations) => {
             "id": cid,
             "sender": conversations[i].participants[1],
             "preview": conversations[i].mostRecent,
+            "names": conversations[i].contacts,
+            "numbers": conversations[i].participants,
             "active": false
         }
         if(i==0 && window.firstLoad==1){
@@ -108,7 +113,12 @@ window.updateConversations = (conversations) => {
 }
 
 window.loading = () => {
-    var loadMessages = [];
+    TopMostParent.setState({convos: []});
+    window.loadingMessages();
+}
+
+window.loadingMessages = () => {
+        var loadMessages = [];
     var load = {
         "id": uuid.v4(),
         "sender": "loading",
@@ -118,11 +128,15 @@ window.loading = () => {
     }
     loadMessages.push(load);
     TopMostParent.setState({messages: loadMessages});
-    TopMostParent.setState({convos: []});
 }
 
 window.updateHeader = () => {
     var header = document.getElementById("heading");
+    /*
+    var convos = TopMostParent.state.convos;
+    var activeConvoNum = window.activeConvo();
+    console.log(activeConvoNum);
+    var names = convos[activeConvoNum].names;*/
     var names = TopMostParent.state.names;
     var participants = "";
     //console.log(names);
@@ -136,7 +150,6 @@ window.updateHeader = () => {
 }
 
 window.findName = (number) => {
-    console.log(number);
     var names = TopMostParent.state.names;
     var numbers = TopMostParent.state.numbers;
     var i;
@@ -148,6 +161,21 @@ window.findName = (number) => {
         }
     }
     return name;
+}
+
+window.activeConvo = () => {
+    var convos = TopMostParent.state.convos;
+    console.log(convos);
+    var num = -1;
+    var i;
+    for(i=0; i<convos.length; i++){
+        //console.log(convos[i]);
+        if(convos[i].id === window.activeConversationId){
+            num = i;
+            return num;
+        }
+    }
+    return num;
 }
 
 window.sendNewMessage = (message) => {

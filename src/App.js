@@ -69,29 +69,37 @@ class App extends Component{
         id: uuid.v4(),
         sender: 'alan',
         preview: 'N O !',
+        names: ['Travis'],
+        numbers: ['0123456789'],
         active: true
       },
       {
         id: uuid.v4(),
         sender: 'al capone',
         preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
         active: false
       },
       {
         id: uuid.v4(),
         sender: 'al calzone',
         preview: 'are you italian my man',
+        names: ['Travis'],
+        numbers: ['0123456789'],
         active: false
       },
       {
         id: uuid.v4(),
         sender: 'al lasagna',
         preview: 'I think you still owe me from Costco bro',
+        names: ['Travis'],
+        numbers: ['0123456789'],
         active: false
       }
     ],
-    numbers: ["4321"],
-    names: ["Alan Kang"],
+    names: ['Alan Kang'],
+    numbers: ['4321'],
     selected: undefined
   }
 

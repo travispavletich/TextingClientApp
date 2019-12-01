@@ -18,8 +18,9 @@ export class Convo extends Component {
         var id = this.props.convo.id;
         const request = require('request');
         if(id != window.activeConversationId){
+            window.loadingMessages();
             var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+id;
-            console.log(reqURL);
+            //console.log(reqURL);
             request(reqURL, function (error, response, body) {
                 //console.log(body);
                 //console.log(response.resultMessage);
