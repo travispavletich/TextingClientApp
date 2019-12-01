@@ -12,7 +12,11 @@ export class Message extends Component{
     let bubbleStyle = '';
 
     // set name + message style
-    if (self) {
+    if(sender === "loading" && number === "loading"){
+      nameStyle += 'loadingName';
+      bubbleStyle += 'loadingMessage';
+    }
+    else if (self) {
       nameStyle += 'myName';
       bubbleStyle += 'myMessage';
     }

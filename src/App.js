@@ -90,6 +90,8 @@ class App extends Component{
         active: false
       }
     ],
+    numbers: ["4321"],
+    names: ["Alan Kang"],
     selected: undefined
   }
 
@@ -98,11 +100,12 @@ class App extends Component{
     var guid = uuid.v4();
     var url = "http://localhost:5000/Client/SendMessage";
     var message = text;
+    console.log(window.activeConversationId);
     var data = {
-      "messageBody": message,
-      "sender": ["6108830941"],
+      "Message": message,
+      "Recipients": ["6108830941"],
       "MessageId": guid,
-      "converationID": window.activeConversationId
+      "ConversationID": window.activeConversationId
     }
     const request = require('request');
     request.post({url: url, qs:data}, function(err, response, body){});
@@ -115,6 +118,18 @@ class App extends Component{
     }
     this.setState( {messages: [...this.state.messages, newMessage]});
   }
+
+  /*participants(){
+    var participants = "";
+    console.log(this.state.names);
+    participants += this.state.names[0];
+    var i;
+    for(i=0;i<this.state.names.length;i++){
+      participants += ", ";
+      participants += this.state.names[i];
+    }
+    return participants;
+  }*/
 
   componentDidMount() {
     var matches = document.querySelectorAll(".active");
@@ -150,7 +165,7 @@ class App extends Component{
           </div>
           
           <div>
-            <h1 className="heading">Alan Kang</h1>
+            <h1 id="heading" className="heading">Recipients</h1>
             <div className="messageList">
               <MessageList messages={this.state.messages} />
             </div>

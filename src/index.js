@@ -37,6 +37,7 @@ window.updateActiveConversation = (id) => {
 window.requestInitialMessages = () => {
     var reqURL = 'http://localhost:5000/Client/RetrieveMessageList?conversationID='+window.activeConversationId;
     console.log(reqURL);
+    //window.setTimeout(console.log("waiting"), 5000);
     request(reqURL, function (error, response, body) {
     });
 }
@@ -58,10 +59,12 @@ window.getMessageList = () => {
 window.updateMessages = (messages) => {
     var i;
     var messageList = [];
+    //console.log(TopMostParent.state.numbers);
     for(i=0; i<messages.length; i++){
+        var name = window.findName(messages[i].sender);
         var m = {
             "id": uuid.v4(),
-            "sender": messages[i].sender,
+            "sender": name,
             "text": messages[i].messageBody,
             "number": messages[i].sender,
             "self": messages[i].isSender
@@ -85,6 +88,9 @@ window.updateConversations = (conversations) => {
         if(i==0 && window.firstLoad==1){
             c.active = true;
             window.activeConversationId = cid;
+            TopMostParent.setState({names: conversations[i].contacts});
+            TopMostParent.setState({numbers: conversations[i].participants});
+            window.updateHeader();
         }
         else if(cid == window.activeConversationId){
             c.active = true;
@@ -99,6 +105,49 @@ window.updateConversations = (conversations) => {
     else{
         window.getMessageList();
     }
+}
+
+window.loading = () => {
+    var loadMessages = [];
+    var load = {
+        "id": uuid.v4(),
+        "sender": "loading",
+        "text": "Loading...",
+        "number": "loading",
+        "self": true
+    }
+    loadMessages.push(load);
+    TopMostParent.setState({messages: loadMessages});
+    TopMostParent.setState({convos: []});
+}
+
+window.updateHeader = () => {
+    var header = document.getElementById("heading");
+    var names = TopMostParent.state.names;
+    var participants = "";
+    //console.log(names);
+    participants += names[0];
+    var i;
+    for(i=1;i<names.length;i++){
+      participants += ", ";
+      participants += names[i];
+    }
+    header.innerHTML = participants;
+}
+
+window.findName = (number) => {
+    console.log(number);
+    var names = TopMostParent.state.names;
+    var numbers = TopMostParent.state.numbers;
+    var i;
+    var name = "me";
+    for(i=0;i<names.length;i++){
+        if(numbers[i] === number){
+            name = names[i];
+            return name;
+        }
+    }
+    return name;
 }
 
 window.sendNewMessage = (message) => {

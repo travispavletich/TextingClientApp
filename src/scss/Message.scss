@@ -35,6 +35,15 @@
     background: $gray1;
 }
 
+.loadingMessage {
+    @extend .bubble;
+    position: absolute;
+    margin-top: 80px;
+    padding: 5px 50px;
+    font-size: 50px;
+    background: $purp;
+}
+
 .name {
     font-weight: 300;
     margin-bottom: 5px;
@@ -48,6 +57,10 @@
 .theirName {
     @extend .name;
     text-align: left;
+}
+
+.loadingName {
+    visibility: hidden;
 }
 
 .orange {
