@@ -44,6 +44,12 @@
     background: $purp;
 }
 
+.unsent {
+    @extend .bubble;
+    background: none;
+    border: $purp;
+}
+
 .name {
     font-weight: 300;
     margin-bottom: 5px;
