@@ -57,6 +57,7 @@ body {
 .myMessage {
   float: right;
   background: #D093DB;
+  color: #ffffff;
 }
 
 .myMessageUndelivered {

@@ -16,7 +16,7 @@ export class Message extends Component{
       bubbleStyle += 'loadingMessage';
     }
     else if (self) {
-      bubbleStyle += 'myMessageUndelivered';
+      bubbleStyle += 'myMessage';
     }
     else {
       bubbleStyle += 'theirMessage'
