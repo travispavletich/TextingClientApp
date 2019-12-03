@@ -9,7 +9,6 @@
 .wrapper{
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-column-gap: 1em;
 }
 
 .heading{
@@ -20,22 +19,24 @@
 
 .messageList{
     height: 50vh;
-    max-width: 95%;
     overflow-y: scroll;
-    margin: 0;
+    padding: 12px;
 }
+
+.messageList::-webkit-scrollbar {
+    -webkit-appearance: scrollbartrack-vertical;
+}  
 
  .messageList::-webkit-scrollbar {
      width: 12px;
-     color: orange;
  }
+ 
  
  .messageList::-webkit-scrollbar-track {
      border-radius: 10px;
-     color: blue;
  }
  
  .messageList::-webkit-scrollbar-thumb {
      border-radius: 10px;
-     color: red;
+     background-color: $gray4;
  }

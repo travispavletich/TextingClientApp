@@ -34,7 +34,7 @@ body {
   color: #24292E;
 }
 
-.textCutOff, .bubble, .theirMessage, .myMessage {
+.textCutOff, .bubble, .unsent, .loadingMessage, .theirMessage, .myMessage {
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -46,7 +46,7 @@ body {
   hyphens: auto;
 }
 
-.bubble, .theirMessage, .myMessage {
+.bubble, .unsent, .loadingMessage, .theirMessage, .myMessage {
   border-radius: 20px;
   padding: 8px 20px 8px 20px;
   margin-bottom: 8px;
@@ -64,6 +64,19 @@ body {
   background: #444D56;
 }
 
+.loadingMessage {
+  position: absolute;
+  margin-top: 80px;
+  padding: 5px 50px;
+  font-size: 50px;
+  background: #D093DB;
+}
+
+.unsent {
+  background: none;
+  border: #D093DB;
+}
+
 .name, .theirName, .myName {
   font-weight: 300;
   margin-bottom: 5px;
@@ -75,6 +88,10 @@ body {
 
 .theirName {
   text-align: left;
+}
+
+.loadingName {
+  visibility: hidden;
 }
 
 .orange {

@@ -13,26 +13,17 @@ export class Message extends Component{
 
     // set name + message style
     if(sender === "loading" && number === "loading"){
-      nameStyle += 'loadingName';
       bubbleStyle += 'loadingMessage';
     }
     else if (self) {
-      nameStyle += 'myName';
       bubbleStyle += 'myMessage';
     }
     else {
-      nameStyle += 'theirName';
       bubbleStyle += 'theirMessage'
     }                                      
 
     return (
       <div style={{width:'100%', overflow:'hidden'}}>
-        <div>
-          <p className={nameStyle}>
-            { number } // { sender }
-          </p>
-        </div>
-        
         <div className={bubbleStyle}>
           <p>{ text }</p>
         </div>

@@ -1,17 +1,77 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @import 'Reset.scss';
- *   |         ^^^^^^^^^^^^
- *   '
- *   scss\app.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import 'Reset.scss';\d\a   \2502          ^^^^^^^^^^^^\a   \2575 \a   scss\\app.scss 1:9  root stylesheet";
+/* TEXT COLORS */
+/* GRAYS ......... 1 = lightest */
+/* ACCENTS */
+/* FONTS */
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBook.otf);
+  font-weight: normal;
 }
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTMedium.otf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTBold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Futura;
+  src: url(../fonts/FuturaPTLight.otf);
+  font-weight: lighter;
+}
+body {
+  font-family: Futura, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16;
+  color: #ffffff;
+  background-color: #24292E;
+}
+
+::placeholder {
+  color: #24292E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* selects the wrapper */
+.wrapper {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.heading {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  font-weight: 300;
+}
+
+.messageList {
+  height: 50vh;
+  overflow-y: scroll;
+  padding: 12px;
+}
+
+.messageList::-webkit-scrollbar {
+  -webkit-appearance: scrollbartrack-vertical;
+}
+
+.messageList::-webkit-scrollbar {
+  width: 12px;
+}
+
+.messageList::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.messageList::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #141414;
+}
+
+/*# sourceMappingURL=App.css.map */
