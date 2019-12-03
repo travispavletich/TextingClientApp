@@ -34,7 +34,7 @@ body {
   color: #24292E;
 }
 
-.textCutOff, .bubble, .unsent, .loadingMessage, .theirMessage, .myMessage {
+.textCutOff, .bubble, .unsent, .loadingMessage, .theirMessage, .myMessageUndelivered, .myMessage {
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -46,7 +46,7 @@ body {
   hyphens: auto;
 }
 
-.bubble, .unsent, .loadingMessage, .theirMessage, .myMessage {
+.bubble, .unsent, .loadingMessage, .theirMessage, .myMessageUndelivered, .myMessage {
   border-radius: 20px;
   padding: 8px 20px 8px 20px;
   margin-bottom: 8px;
@@ -57,6 +57,12 @@ body {
 .myMessage {
   float: right;
   background: #D093DB;
+}
+
+.myMessageUndelivered {
+  float: right;
+  background: none;
+  border: 1px solid #D093DB;
 }
 
 .theirMessage {
@@ -75,27 +81,6 @@ body {
 .unsent {
   background: none;
   border: #D093DB;
-}
-
-.name, .theirName, .myName {
-  font-weight: 300;
-  margin-bottom: 5px;
-}
-
-.myName {
-  text-align: right;
-}
-
-.theirName {
-  text-align: left;
-}
-
-.loadingName {
-  visibility: hidden;
-}
-
-.orange {
-  background: #6FCF97;
 }
 
 /*# sourceMappingURL=Message.css.map */

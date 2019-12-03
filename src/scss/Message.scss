@@ -1,5 +1,6 @@
 @import 'Reset';
 
+// text wrap around
 .textCutOff{
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -14,6 +15,7 @@
     hyphens: auto;
 }
 
+// ======== BUBBLE STYLES  ===========
 .bubble {
     @extend .textCutOff;
     border-radius: 20px;
@@ -23,19 +25,26 @@
     overflow: auto;
 }
 
-.myMessage {
+.myMessage { // user sent
     @extend .bubble;
     float: right;
     background: $purp;
 }
 
-.theirMessage {
+.myMessageUndelivered { // user undelivered
+    @extend .bubble;
+    float: right;
+    background: none;
+    border: 1px solid $purp;
+}
+
+.theirMessage { // receiver
     @extend .bubble;
     float: left;
     background: $gray1;
 }
 
-.loadingMessage {
+.loadingMessage { // message loading
     @extend .bubble;
     position: absolute;
     margin-top: 80px;
@@ -48,27 +57,4 @@
     @extend .bubble;
     background: none;
     border: $purp;
-}
-
-.name {
-    font-weight: 300;
-    margin-bottom: 5px;
-}
-
-.myName {
-    @extend .name;
-    text-align: right;
-}
-
-.theirName {
-    @extend .name;
-    text-align: left;
-}
-
-.loadingName {
-    visibility: hidden;
-}
-
-.orange {
-    background: $green;
 }
