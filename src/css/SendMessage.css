@@ -35,7 +35,11 @@ body {
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 100px;
+  grid-gap: 10px;
+  padding: 10px;
+  grid-template-areas: "sendBox sendBtn";
 }
 
 .newMessage {
@@ -51,7 +55,7 @@ body {
   background: #D093DB;
   color: #ffffff;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 25px;
   flex: 1;
 }
 

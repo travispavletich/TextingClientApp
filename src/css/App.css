@@ -39,12 +39,35 @@ body {
   padding: 0;
 }
 
-/* selects the wrapper */
+/* ========== GRID SETUP ============ */
 .wrapper {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% 70% 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "headerL headerR" "sidebar messageDisplay" "sidebar sendMessage";
 }
 
+.headerL {
+  grid-area: headerL;
+}
+
+.headerR {
+  grid-area: headerR;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.messageDisplay {
+  grid-area: messageDisplay;
+}
+
+.sendMessage {
+  grid-area: sendMessage;
+}
+
+/* ========== OTHER STYLING ========== */
 .heading {
   margin-top: 0.3em;
   margin-bottom: 0.3em;

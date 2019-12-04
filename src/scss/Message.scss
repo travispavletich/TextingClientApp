@@ -54,7 +54,7 @@
     background: $purp;
 }
 
-.unsent {
+.unsent { // huge load screen
     @extend .bubble;
     background: none;
     border: $purp;
