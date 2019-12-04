@@ -39,27 +39,30 @@ body {
   grid-template-columns: auto 100px;
   grid-gap: 10px;
   padding: 10px;
-  grid-template-areas: "sendBox sendBtn";
 }
 
 .newMessage {
-  flex: 0 0 50%;
+  grid-column: 1;
   border: 0;
   padding: 10px;
   background: white;
   border-radius: 25px;
+  padding-left: 15px;
 }
 
 .btn {
+  grid-column: 2;
   border: none;
   background: #D093DB;
   color: #ffffff;
   cursor: pointer;
   border-radius: 25px;
-  flex: 1;
 }
 
 input[type=text] {
+  font-family: Futura, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 16px;
   background-color: #141414;
   color: white;
 }
