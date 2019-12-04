@@ -19,27 +19,50 @@ export class SendMessage extends Component {
         this.setState({ text: '' });
     }
 
-    render() {
-        return (
-            <form onSubmit={this.onSubmit} className="container">
-                {/* new message box */}
-                <input 
-                    type = "text" 
-                    name = "text" 
-                    placeholder = "Type a message..." 
-                    value = {this.state.text}
-                    onChange = {this.onChange}
-                    className = "newMessage"
-                />
+    connect = (e) => {
+        e.preventDefault();
+        this.props.setConnected(true);
+        window.connect();
+    }
 
-                {/* submit message button */}
-                <input 
-                    type="submit" 
-                    value="Send" 
-                    className="btn"
-                    style={{flex: 1}}
-                />
-            </form>
+    render() {
+        const connected = this.props.connected;
+        //console.log(connected);
+        let connectClass = 'btn';
+        if(connected){
+            connectClass += ' connected';
+        }
+        return (
+            <div>
+                <form onSubmit={this.connect} className="container">
+                    <input
+                        type="submit"
+                        value="Connect"
+                        className={connectClass}
+                        id="connectBtn"
+                        style={{flex: 1}}
+                    />
+                </form>
+                <form onSubmit={this.onSubmit} className="container">
+                    {/* new message box */}
+                    <input 
+                        type = "text" 
+                        name = "text" 
+                        placeholder = "Type a message..." 
+                        value = {this.state.text}
+                        onChange = {this.onChange}
+                        className = "newMessage"
+                    />
+
+                    {/* submit message button */}
+                    <input 
+                        type="submit" 
+                        value="Send" 
+                        className="btn"
+                        style={{flex: 1}}
+                    />
+                </form>
+            </div>
         )
     }
 }

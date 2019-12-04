@@ -17,6 +17,41 @@ window.requestMessageList = (conversationID) => {
         });
     }
 }*/
+window.setToken = (t) => {
+    TopMostParent.setState({token: t});
+}
+
+window.connect = () => {
+    var token = TopMostParent.state.token;
+    
+    let url = "http://localhost:5000/Client/Token";
+    /*
+    var paramsObject = {token: token};
+    console.log(paramsObject);
+    request({url: url, qs:paramsObject}, function (err, response, body) {
+        console.log(body);
+        window.activeConversationId = 0;
+        window.requestMessages = 1;
+        window.firstLoad = 1;
+        window.loading();
+        request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
+    });
+    */
+    
+    console.log('service successfully started', token);
+    request('http://localhost:5000/Client/Token?token='+token, function (error, response, body) {
+    console.log(response);  
+    console.log(body);
+    window.activeConversationId = 0;
+    window.requestMessages = 1;
+    window.firstLoad = 1;
+    window.loading();
+    request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
+    });
+    
+    
+}
+
 window.updateActiveConversation = (id) => {
     var convos = []
     var conversationList = TopMostParent.state.convos;
@@ -70,7 +105,8 @@ window.updateMessages = (messages) => {
             "sender": name,
             "text": messages[i].messageBody,
             "number": messages[i].sender,
-            "self": messages[i].isSender
+            "self": messages[i].isSender,
+            "sent": messages[i].sentSuccessfully
         }
         messageList.push(m);
     }
@@ -118,7 +154,7 @@ window.loading = () => {
 }
 
 window.loadingMessages = () => {
-        var loadMessages = [];
+    var loadMessages = [];
     var load = {
         "id": uuid.v4(),
         "sender": "loading",

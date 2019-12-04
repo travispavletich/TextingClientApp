@@ -17,7 +17,8 @@ const {
 
 // Listen for service successfully started
 ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
-  
+  window.setToken(token);
+  /*
   let url = "http://localhost:5000/client/token";
 
   var paramsObject = {token: token};
@@ -33,7 +34,7 @@ ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   console.log(response);  
   console.log(body);
   });
-  startUp();
+  startUp();*/
 })
 
 // Handle notification errors
@@ -143,3 +144,14 @@ function addNewMessage(message){
   console.log(message);
   window.recieveNewMessage(message);
 }
+
+var methods = {};
+methods.start = function(){
+  //console.log("start-up");
+  window.activeConversationId = 0;
+  window.requestMessages = 1;
+  window.firstLoad = 1;
+  requestConversationList();
+  //requestInitialMessages();	// This should probably be elsewhere
+};
+module.exports = methods;

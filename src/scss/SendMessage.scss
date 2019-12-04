@@ -25,6 +25,10 @@
     flex: 1;
 }
 
+.connected {
+    display: none;
+}
+
 input[type=text] {
     background-color: $gray4;
     color: white;

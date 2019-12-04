@@ -9,6 +9,7 @@ import uuid from 'uuid';
 
 import './scss/Main.scss';
 import "./scss/Convo.scss"
+import { thisTypeAnnotation } from "@babel/types";
 
 
 class App extends Component{
@@ -19,49 +20,56 @@ class App extends Component{
         sender: 'alan',
         text: 'oh my lord bruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuh why tho',
         number: '6098889999',
-        self: false
+        self: false,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'skrtskrt',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'alan',
         text: 'N O !',
         number: '6098889999',
-        self: false
+        self: false,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'alan',
         text: 'N O !',
         number: '6098889999',
-        self: false
+        self: false,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'alan',
         text: 'N O !',
         number: '6098889999',
-        self: false
+        self: false,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'alan',
         text: 'N O !',
         number: '6098889999',
-        self: false
+        self: false,
+        sent: true
       },
     ],
     convos: [
@@ -98,6 +106,8 @@ class App extends Component{
         active: false
       }
     ],
+    connected: false,
+    token: '',
     names: ['Alan Kang'],
     numbers: ['4321'],
     selected: undefined
@@ -122,9 +132,14 @@ class App extends Component{
       sender: 'me',
       text: message,
       number: '1234',
-      self: true
+      self: true,
+      sent: false
     }
     this.setState( {messages: [...this.state.messages, newMessage]});
+  }
+
+  setConnected = (c) => {
+    this.setState({connected: c});
   }
 
   /*participants(){
@@ -177,7 +192,8 @@ class App extends Component{
             <div className="messageList">
               <MessageList messages={this.state.messages} />
             </div>
-            <SendMessage sendMessage={this.sendMessage} />
+            <SendMessage sendMessage={this.sendMessage} connected={this.state.connected}
+            setConnected={this.setConnected}/>
           </div>
         </div>
       </div>

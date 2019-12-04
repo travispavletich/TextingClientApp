@@ -7,7 +7,7 @@ import '../scss/Message.scss'
 export class Message extends Component{
 
   render() {
-    const { sender, text, number, self } = this.props.message;
+    const { sender, text, number, self, sent } = this.props.message;
     let nameStyle = '';
     let bubbleStyle = '';
 
@@ -17,6 +17,9 @@ export class Message extends Component{
     }
     else if (self) {
       bubbleStyle += 'myMessage';
+      if(!sent){
+        bubbleStyle += ' myMessageUndelivered';
+      }
     }
     else {
       bubbleStyle += 'theirMessage'
