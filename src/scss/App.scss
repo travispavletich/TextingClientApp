@@ -5,38 +5,71 @@
     padding: 0;
 }
   
-/* selects the wrapper */
+/* ========== GRID SETUP ============ */
+
 .wrapper{
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-rows: auto 80% auto;
+    grid-template-areas:
+    "hl hl hl hr hr hr hr hr hr hr hr hr"
+    "c c c m m m m m m m m m"
+    "c c c s s s s s s s s s";
+    width: 100vw;
+    height: 100vh;
 }
 
-.heading{
-    margin-top: .3em;
-    margin-bottom: .3em;
-    font-weight: 300;
+@media (min-height: 500px){
+    .heading{
+        font-weight: 300;
+        padding-left: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .headerL{
+        @extend .heading;
+        grid-area: hl;
+        border-bottom: 1px solid $gray4;
+        border-right: 1px solid $gray4;
+    }
+
+    .headerR{
+        @extend .heading;
+        grid-area: hr;
+        border-bottom: 1px solid $gray4;
+    }
+
+    .convos{
+        grid-area: c;
+        overflow-y: scroll;
+        grid-row: 2 / 4;
+        border-right: 1px solid $gray4;
+    }
+
+    .messageList{
+        grid-area: m;
+        grid-row: 2 / 3;
+        max-height: 76vh;
+        overflow-y: scroll;
+        padding: 12px;
+    }
+
+    .sendMessage{
+        grid-area: s;
+    }
 }
 
-.messageList{
-    height: 50vh;
-    overflow-y: scroll;
-    padding: 12px;
-}
-
-.messageList::-webkit-scrollbar {
-    -webkit-appearance: scrollbartrack-vertical;
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 15px;
 }  
+  
+ ::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    background-color: $gray1;
+    border-radius: 15px;
+ }
 
- .messageList::-webkit-scrollbar {
-     width: 12px;
- }
- 
- 
- .messageList::-webkit-scrollbar-track {
-     border-radius: 10px;
- }
- 
- .messageList::-webkit-scrollbar-thumb {
-     border-radius: 10px;
-     background-color: $gray4;
- }
+

@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 
-import { colors } from "../vars_colors"
 import '../scss/Message.scss'
 
 export class Message extends Component{

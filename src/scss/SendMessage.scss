@@ -1,28 +1,30 @@
 @import 'Reset';
 
 .container{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 100px;
+    grid-gap: 10px;
+    padding: 10px;
 }
 
+// ========= new message input ========= 
 .newMessage{
-    flex: 0 0 50%;
+    grid-column: 1;
     border: 0;
     padding: 10px;
     background: white;
-    //width: 75%;
     border-radius: 25px;
-    //padding-left: 15px;
+    padding-left: 15px;
 }
 
+// ========= the send button =========
 .btn{
-    //display: inline-block;
+    grid-column: 2;
     border: none;
     background: $purp;
     color: $white1;
-    //padding: 7px 20px;
     cursor: pointer;
-    border-radius: 5px;
-    flex: 1;
+    border-radius: 25px;
 }
 
 .connected {
@@ -30,6 +32,9 @@
 }
 
 input[type=text] {
+    font-family: Futura, Arial, sans-serif; 
+    line-height: 1.4;
+    font-size: 16px;
     background-color: $gray4;
     color: white;
 }

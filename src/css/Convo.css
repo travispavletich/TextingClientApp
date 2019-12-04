@@ -44,8 +44,10 @@ body {
   border-bottom: 2px solid;
   border-color: #24292E;
   padding: 10px;
+  padding-left: 15px;
 }
 
+/* ========== STATES OF CONVOS ============= */
 .active {
   background: #444D56;
   color: #ffffff;

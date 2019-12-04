@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 import './scss/SendMessage.scss';
-import { colors } from "./vars_colors"
 
 export class SendMessage extends Component {
     state = {
@@ -21,7 +20,7 @@ export class SendMessage extends Component {
 
     connect = (e) => {
         e.preventDefault();
-        this.props.setConnected(true);
+        //this.props.setConnected(true);
         window.connect();
     }
 

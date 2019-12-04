@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 import MessageList from './components/MessageList';
-import Convo from './components/Convo';
 import ConvoList from './components/ConvoList';
 import SendMessage from './SendMessage';
 
@@ -30,6 +29,69 @@ class App extends Component{
         number: '1112223333',
         self: true,
         sent: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'me',
+        text: 'honhonhon',
+        number: '1112223333',
+        self: true
       },
       {
         id: uuid.v4(),
@@ -80,6 +142,54 @@ class App extends Component{
         names: ['Travis'],
         numbers: ['0123456789'],
         active: true
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
+        active: false
+      },
+      {
+        id: uuid.v4(),
+        sender: 'al capone',
+        preview: 'give me your pizza',
+        names: ['Travis'],
+        numbers: ['0123456789'],
+        active: false
       },
       {
         id: uuid.v4(),
@@ -154,49 +264,21 @@ class App extends Component{
     return participants;
   }*/
 
-  componentDidMount() {
-    var matches = document.querySelectorAll(".active");
-    // matches.forEach(
-    //   onClick(
-    //       console.log('test')
-    //   )
-    // )
+  componentDidUpdate() {
+    var el = this.refs.update;
+    el.scrollTop = el.scrollHeight;
   }
-
-  makeConvoList = () => {
-    const { selected, convos } = this.state;
-    return convos.map(convo => {
-      const background = selected === convo ? "yellow" : "green";
-      return (
-        <div
-          style={{ background, border: "1px solid black" }}
-          onClick={() => this.setState({ selected: convo })}
-        >
-          {convo}
-        </div>
-      );
-    });
-  };
 
   render() {
     return (
-      <div className="App">
+      
         <div className="wrapper">
-          <div>
-            <h1 className="heading" style={{ marginLeft: ".4em"}}>Messages</h1>
-            <ConvoList convos={this.state.convos} />
-          </div>
-          
-          <div>
-            <h1 id="heading" className="heading">Recipients</h1>
-            <div className="messageList">
-              <MessageList messages={this.state.messages} />
-            </div>
-            <SendMessage sendMessage={this.sendMessage} connected={this.state.connected}
-            setConnected={this.setConnected}/>
-          </div>
+            <div className="headerL"><h1>Messages</h1></div>
+            <div className="convos"><ConvoList convos={this.state.convos} /></div>
+            <div className="headerR"><h1>Recipients</h1></div>
+            <div ref="update" className="messageList"><MessageList messages={this.state.messages} /></div>
+            <div className="sendMessage"><SendMessage sendMessage={this.sendMessage} /></div>
         </div>
-      </div>
 		);
   }
 }

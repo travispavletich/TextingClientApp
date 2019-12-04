@@ -11,11 +11,12 @@
     border-bottom: 2px solid;
     border-color: $gray3;
     padding: 10px;
+    padding-left: 15px;
 }
 
+/* ========== STATES OF CONVOS ============= */
 .active{
     @extend .convo;
-
     background: $gray1;
     color: $white1;
 }
@@ -23,6 +24,5 @@
 .inactive{
     @extend .convo;
     background: $gray2;
-    
     color: $white1;
 }
