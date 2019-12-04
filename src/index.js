@@ -64,11 +64,6 @@ window.connect = () => {
     console.log(response);  
     console.log(body);
 	*/
-    window.activeConversationId = 0;
-    window.requestMessages = 1;
-    window.firstLoad = 1;
-    window.loading();
-    
 }
 
 window.updateActiveConversation = (id) => {
