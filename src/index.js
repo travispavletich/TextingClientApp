@@ -183,6 +183,7 @@ window.loading = () => {
 }
 
 window.loadingMessages = () => {
+    console.log("loading");
     var loadMessages = [];
     var load = {
         "id": uuid.v4(),
