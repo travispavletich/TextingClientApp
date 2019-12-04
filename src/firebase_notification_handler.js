@@ -77,6 +77,13 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
     console.log(message);
     addNewMessage(message);*/
   }
+  else if(serverNotificationPayload.data.NotificationType === "SentMessageStatus"){
+    if(serverNotificationPayload.data.MessageStatus === "OK"){
+      var messageId = serverNotificationPayload.data.MessageID;
+      console.log(messageId);
+      window.confirmMessage(messageId);
+    }
+  }
   else{
     console.log(serverNotificationPayload.data.NotificationType);
   }

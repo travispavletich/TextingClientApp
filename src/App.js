@@ -240,7 +240,7 @@ class App extends Component{
     console.log(window.activeConversationId);
     var data = {
       "Message": message,
-      "Recipients": ["6108830941"],
+      "Recipients": this.state.numbers,
       "MessageId": guid,
       "ConversationID": window.activeConversationId
     }

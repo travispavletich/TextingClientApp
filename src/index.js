@@ -66,6 +66,20 @@ window.connect = () => {
 	*/
 }
 
+window.confirmMessage = (id) => {
+    var messages = [];
+    var messageList = TopMostParent.state.messages;
+    var i;
+    for(i=0; i<messageList.length; i++){
+        var m = messageList[i];
+        if(m.id === id){
+            m.sent = true;
+        }
+        messages.push(m);
+    }
+    TopMostParent.setState({messages: messages});
+}
+
 window.updateActiveConversation = (id) => {
     var convos = []
     var conversationList = TopMostParent.state.convos;
