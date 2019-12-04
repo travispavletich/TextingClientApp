@@ -36,7 +36,7 @@ ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   console.log(body);
   });
   */
-  startUp();
+  //startUp();
 })
 
 // Handle notification errors
