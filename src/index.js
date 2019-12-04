@@ -80,7 +80,7 @@ window.updateActiveConversation = (id) => {
         c.active = false;
         if(c.id == id){
             c.active = true;
-			console.log("NAMES:" + c.names);
+			//console.log("NAMES:" + c.names);
             TopMostParent.setState({names: c.names});
             TopMostParent.setState({numbers: c.numbers});
             window.updateHeader();
@@ -140,7 +140,7 @@ window.updateConversations = (conversations) => {
         var cid = conversations[i].conversationID;
         var c = {
             "id": cid,
-            "sender": conversations[i].participants[1],
+            "sender": conversations[i].contacts[0],
             "preview": conversations[i].mostRecent,
             "names": conversations[i].contacts,
             "numbers": conversations[i].participants,

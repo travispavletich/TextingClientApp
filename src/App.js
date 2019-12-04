@@ -35,63 +35,72 @@ class App extends Component{
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
