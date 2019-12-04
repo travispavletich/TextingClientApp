@@ -1,14 +1,12 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 
-import { colors } from "../vars_colors"
 import '../scss/Message.scss'
 
 export class Message extends Component{
 
   render() {
     const { sender, text, number, self } = this.props.message;
-    let nameStyle = '';
     let bubbleStyle = '';
 
     // set name + message style

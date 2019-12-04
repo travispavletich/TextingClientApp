@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 import './scss/SendMessage.scss';
-import { colors } from "./vars_colors"
 
 export class SendMessage extends Component {
     state = {

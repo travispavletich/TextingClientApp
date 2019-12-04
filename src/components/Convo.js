@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { colors } from "../vars_colors"
 import "../scss/Convo.scss"
 
 
 export class Convo extends Component {
-    handleClick(){
-        // this.setState(state =>({
-        //     this.props.convo.active= !
-        // }
-
-        // ))
-    }
-
     requestMessageList = () => {
         var id = this.props.convo.id;
         const request = require('request');
