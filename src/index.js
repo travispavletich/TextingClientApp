@@ -66,6 +66,20 @@ window.connect = () => {
 	*/
 }
 
+window.confirmMessage = (id) => {
+    var messages = [];
+    var messageList = TopMostParent.state.messages;
+    var i;
+    for(i=0; i<messageList.length; i++){
+        var m = messageList[i];
+        if(m.id === id){
+            m.sent = true;
+        }
+        messages.push(m);
+    }
+    TopMostParent.setState({messages: messages});
+}
+
 window.updateActiveConversation = (id) => {
     var convos = []
     var conversationList = TopMostParent.state.convos;
@@ -75,7 +89,7 @@ window.updateActiveConversation = (id) => {
         c.active = false;
         if(c.id == id){
             c.active = true;
-			console.log("NAMES:" + c.names);
+			//console.log("NAMES:" + c.names);
             TopMostParent.setState({names: c.names});
             TopMostParent.setState({numbers: c.numbers});
             window.updateHeader();
@@ -135,7 +149,7 @@ window.updateConversations = (conversations) => {
         var cid = conversations[i].conversationID;
         var c = {
             "id": cid,
-            "sender": conversations[i].participants[1],
+            "sender": conversations[i].contacts[0],
             "preview": conversations[i].mostRecent,
             "names": conversations[i].contacts,
             "numbers": conversations[i].participants,

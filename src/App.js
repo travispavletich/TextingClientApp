@@ -35,63 +35,72 @@ class App extends Component{
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
         sender: 'me',
         text: 'honhonhon',
         number: '1112223333',
-        self: true
+        self: true,
+        sent: true
       },
       {
         id: uuid.v4(),
@@ -231,7 +240,7 @@ class App extends Component{
     console.log(window.activeConversationId);
     var data = {
       "Message": message,
-      "Recipients": ["6108830941"],
+      "Recipients": this.state.numbers,
       "MessageId": guid,
       "ConversationID": window.activeConversationId
     }
