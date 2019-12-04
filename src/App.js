@@ -275,7 +275,7 @@ class App extends Component{
         <div className="wrapper">
             <div className="headerL"><h1>Messages</h1></div>
             <div className="convos"><ConvoList convos={this.state.convos} /></div>
-            <div className="headerR"><h1>Recipients</h1></div>
+            <div className="headerR"><h1 id="heading">Recipients</h1></div>
             <div ref="update" className="messageList"><MessageList messages={this.state.messages} /></div>
             <div className="sendMessage"><SendMessage sendMessage={this.sendMessage} /></div>
         </div>

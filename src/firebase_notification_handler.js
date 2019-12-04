@@ -28,13 +28,15 @@ ipcRenderer.on(NOTIFICATION_SERVICE_STARTED, (_, token) => {
   request({url: url, qs:paramsObject}, function (err, response, body) {
 	  console.log(body);
   });
-  
+  */
+/* 
   console.log('service successfully started', token)
   request('http://localhost:5000/Client/Token', function (error, response, body) {
   console.log(response);  
   console.log(body);
   });
-  startUp();*/
+  */
+  startUp();
 })
 
 // Handle notification errors
@@ -59,7 +61,6 @@ ipcRenderer.on(NOTIFICATION_RECEIVED, (_, serverNotificationPayload) => {
     getConversationList();
   }
   else if(serverNotificationPayload.data.NotificationType === "RetrieveMessageList"){
-	console.log("TEST");
     getMessageList();
   }
   else if(serverNotificationPayload.data.NotificationType === "NewMessageReceived"){
@@ -93,7 +94,7 @@ function startUp(){
   window.activeConversationId = 0;
   window.requestMessages = 1;
   window.firstLoad = 1;
-  requestConversationList();
+  //requestConversationList();
   //requestInitialMessages();	// This should probably be elsewhere
 }
 function requestConversationList(){

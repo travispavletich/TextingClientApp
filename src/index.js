@@ -24,7 +24,18 @@ window.setToken = (t) => {
 window.connect = () => {
     var token = TopMostParent.state.token;
     
-    let url = "http://localhost:5000/Client/Token";
+	let url = "http://localhost:5000/client/token";
+
+	var paramsObject = {token: token};
+
+
+	request({url: url, qs:paramsObject}, function (err, response, body) {
+        window.activeConversationId = 0;
+        window.requestMessages = 1;
+        window.firstLoad = 1;
+        window.loading();
+        request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
+	});
     /*
     var paramsObject = {token: token};
     console.log(paramsObject);
@@ -36,19 +47,27 @@ window.connect = () => {
         window.loading();
         request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
     });
-    */
+   	 
     
+	/*let url = "http://localhost:5000/client/token";
+
+	var paramsObject = {token: token};
+
+	console.log(paramsObject);
+
+	request({url: url, qs:paramsObject}, function (err, response, body) {
+		console.log(body);
+	});
     console.log('service successfully started', token);
-    request('http://localhost:5000/Client/Token?token='+token, function (error, response, body) {
+   /*
+	request('http://localhost:5000/Client/Token?token='+token, function (error, response, body) {
     console.log(response);  
     console.log(body);
+	*/
     window.activeConversationId = 0;
     window.requestMessages = 1;
     window.firstLoad = 1;
     window.loading();
-    request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
-    });
-    
     
 }
 
@@ -61,6 +80,7 @@ window.updateActiveConversation = (id) => {
         c.active = false;
         if(c.id == id){
             c.active = true;
+			console.log("NAMES:" + c.names);
             TopMostParent.setState({names: c.names});
             TopMostParent.setState({numbers: c.numbers});
             window.updateHeader();
@@ -175,7 +195,7 @@ window.updateHeader = () => {
     var names = convos[activeConvoNum].names;*/
     var names = TopMostParent.state.names;
     var participants = "";
-    //console.log(names);
+    console.log(names);
     participants += names[0];
     var i;
     for(i=1;i<names.length;i++){
