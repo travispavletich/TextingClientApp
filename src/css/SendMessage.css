@@ -59,6 +59,15 @@ body {
   border-radius: 25px;
 }
 
+.conBtn {
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 50px);
+  padding: 5px 50px;
+  font-size: 50px;
+  background: #D093DB;
+}
+
 .connected {
   display: none;
 }
