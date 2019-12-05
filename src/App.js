@@ -241,7 +241,7 @@ class App extends Component{
     var data = {
       "Message": message,
       "Recipients": this.state.numbers,
-      "MessageId": guid,
+      "MessageID": guid,
       "ConversationID": window.activeConversationId
     }
     const request = require('request');

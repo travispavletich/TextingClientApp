@@ -105,7 +105,7 @@ function startUp(){
   //requestInitialMessages();	// This should probably be elsewhere
 }
 function requestConversationList(){
-  window.loading();
+  //window.loading();
   request('http://localhost:5000/Client/RetrieveConversations', function (error, response, body) {});
 }
 function requestInitialMessages(){
