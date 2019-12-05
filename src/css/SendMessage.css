@@ -59,6 +59,10 @@ body {
   border-radius: 25px;
 }
 
+.connected {
+  display: none;
+}
+
 input[type=text] {
   font-family: Futura, Arial, sans-serif;
   line-height: 1.4;
