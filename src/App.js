@@ -76,7 +76,8 @@ class App extends Component{
             <div className="convos"><ConvoList convos={this.state.convos} /></div>
             <div className="headerR"><h1 id="heading">Recipients</h1></div>
             <div ref="update" className="messageList"><MessageList messages={this.state.messages} /></div>
-            <div className="sendMessage"><SendMessage sendMessage={this.sendMessage} /></div>
+            <div className="sendMessage"><SendMessage sendMessage={this.sendMessage} 
+            connected={this.state.connected} setConnected={this.setConnected}/></div>
         </div>
 		);
   }

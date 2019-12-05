@@ -20,7 +20,7 @@ export class SendMessage extends Component {
 
     connect = (e) => {
         e.preventDefault();
-        //this.props.setConnected(true);
+        this.props.setConnected(true);
         window.connect();
     }
 
@@ -30,6 +30,9 @@ export class SendMessage extends Component {
         let connectClass = 'btn';
         if(connected){
             connectClass += ' connected';
+        }
+        else{
+            connectClass += ' conBtn';
         }
         return (
             <div>
