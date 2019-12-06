@@ -2,7 +2,7 @@
 
 The desktop client application is a react application within an electron container
 
-A finalized release version is not yet available because the application is still in development.
+## To run manually:
 
 #### Clone the Repo
 ```bash
